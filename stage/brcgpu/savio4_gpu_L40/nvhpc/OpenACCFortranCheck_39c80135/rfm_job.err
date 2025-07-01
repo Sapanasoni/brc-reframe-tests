@@ -1,0 +1,8 @@
+Accelerator Fatal Error: This file was compiled: -acc=gpu -gpu=cc70 -gpu=cc75 -gpu=cc80 -gpu=cc86 -gpu=cc90
+Rebuild this file with -gpu=cc89 to use NVIDIA Tesla GPU 0
+ File: /global/scratch/users/spsoni/software_installation/lrc-reframe-tests/stage/brcgpu/savio4_gpu_L40/nvhpc/OpenACCFortranCheck_39c80135/vecAdd_openacc_nompi.f90
+ Function: main:7
+ Line: 34
+
+srun: error: n0387.savio4: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=26298422.0

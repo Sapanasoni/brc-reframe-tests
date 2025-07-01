@@ -1,0 +1,101 @@
+{
+  "arch": "cascadelake",
+  "vendor": "GenuineIntel",
+  "model": "Intel(R) Xeon(R) Silver 4208 CPU @ 2.10GHz",
+  "platform": "x86_64",
+  "topology": {
+    "numa_nodes": [
+      "0x00ff",
+      "0xff00"
+    ],
+    "sockets": [
+      "0x00ff",
+      "0xff00"
+    ],
+    "cores": [
+      "0x0001",
+      "0x0002",
+      "0x0004",
+      "0x0008",
+      "0x0010",
+      "0x0020",
+      "0x0040",
+      "0x0080",
+      "0x0100",
+      "0x0200",
+      "0x0400",
+      "0x0800",
+      "0x1000",
+      "0x2000",
+      "0x4000",
+      "0x8000"
+    ],
+    "caches": [
+      {
+        "type": "L2",
+        "size": 1048576,
+        "linesize": 64,
+        "associativity": 16,
+        "num_cpus": 1,
+        "cpusets": [
+          "0x0001",
+          "0x0002",
+          "0x0004",
+          "0x0008",
+          "0x0010",
+          "0x0020",
+          "0x0040",
+          "0x0080",
+          "0x0100",
+          "0x0200",
+          "0x0400",
+          "0x0800",
+          "0x1000",
+          "0x2000",
+          "0x4000",
+          "0x8000"
+        ]
+      },
+      {
+        "type": "L1",
+        "size": 32768,
+        "linesize": 64,
+        "associativity": 8,
+        "num_cpus": 1,
+        "cpusets": [
+          "0x0001",
+          "0x0002",
+          "0x0004",
+          "0x0008",
+          "0x0010",
+          "0x0020",
+          "0x0040",
+          "0x0080",
+          "0x0100",
+          "0x0200",
+          "0x0400",
+          "0x0800",
+          "0x1000",
+          "0x2000",
+          "0x4000",
+          "0x8000"
+        ]
+      },
+      {
+        "type": "L3",
+        "size": 11534336,
+        "linesize": 64,
+        "associativity": 11,
+        "num_cpus": 8,
+        "cpusets": [
+          "0x00ff",
+          "0xff00"
+        ]
+      }
+    ]
+  },
+  "num_cpus": 16,
+  "num_cpus_per_core": 1,
+  "num_cpus_per_socket": 8,
+  "num_sockets": 2
+}

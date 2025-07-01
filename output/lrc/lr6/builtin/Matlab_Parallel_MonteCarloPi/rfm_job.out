@@ -1,0 +1,33 @@
+MATLAB is selecting SOFTWARE OPENGL rendering.
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2022 The MathWorks, Inc.
+             R2022a Update 2 (9.12.0.1956245) 64-bit (glnxa64)
+                                May 11, 2022
+
+Warning: X does not support locale C.utf8
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 8).
+
+ans = 
+
+ ProcessPool with properties: 
+
+            Connected: true
+           NumWorkers: 8
+                 Busy: false
+              Cluster: local
+        AttachedFiles: {}
+    AutoAddClientPath: true
+            FileStore: [1x1 parallel.FileStore]
+           ValueStore: [1x1 parallel.ValueStore]
+          IdleTimeout: 30 minutes (30 minutes remaining)
+          SpmdEnabled: true
+
+The computed value of pi is 3.1408328.
+The parallel Monte-Carlo method is executed in     0.80 seconds.
+Parallel pool using the 'local' profile is shutting down.

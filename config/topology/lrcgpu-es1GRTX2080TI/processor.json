@@ -1,0 +1,77 @@
+{
+  "arch": "skylake_avx512",
+  "vendor": "GenuineIntel",
+  "model": "Intel(R) Xeon(R) Silver 4112 CPU @ 2.60GHz",
+  "platform": "x86_64",
+  "topology": {
+    "numa_nodes": [
+      "0x0f",
+      "0xf0"
+    ],
+    "sockets": [
+      "0x0f",
+      "0xf0"
+    ],
+    "cores": [
+      "0x01",
+      "0x02",
+      "0x04",
+      "0x08",
+      "0x10",
+      "0x20",
+      "0x40",
+      "0x80"
+    ],
+    "caches": [
+      {
+        "type": "L2",
+        "size": 1048576,
+        "linesize": 64,
+        "associativity": 16,
+        "num_cpus": 1,
+        "cpusets": [
+          "0x01",
+          "0x02",
+          "0x04",
+          "0x08",
+          "0x10",
+          "0x20",
+          "0x40",
+          "0x80"
+        ]
+      },
+      {
+        "type": "L1",
+        "size": 32768,
+        "linesize": 64,
+        "associativity": 8,
+        "num_cpus": 1,
+        "cpusets": [
+          "0x01",
+          "0x02",
+          "0x04",
+          "0x08",
+          "0x10",
+          "0x20",
+          "0x40",
+          "0x80"
+        ]
+      },
+      {
+        "type": "L3",
+        "size": 8650752,
+        "linesize": 64,
+        "associativity": 11,
+        "num_cpus": 4,
+        "cpusets": [
+          "0x0f",
+          "0xf0"
+        ]
+      }
+    ]
+  },
+  "num_cpus": 8,
+  "num_cpus_per_core": 1,
+  "num_cpus_per_socket": 4,
+  "num_sockets": 2
+}

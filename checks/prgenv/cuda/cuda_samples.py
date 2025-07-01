@@ -1,0 +1,90 @@
+# Copyright 2016-2022 Swiss National Supercomputing Centre (CSCS/ETH Zurich)
+# ReFrame Project Developers. See the top-level LICENSE file for details.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+import os
+import sys
+import reframe as rfm
+import reframe.utility.sanity as sn
+
+#sys.path.append(os.path.abspath(os.path.join(__file__, '../../../')))
+#import microbenchmarks.gpu.hooks as hooks
+
+
+@rfm.simple_test
+class CudaSamplesTest(rfm.RegressionTest):
+    # may need to go over at the github for cuda-samples and check the
+    # directory structure for the version you are using.
+    # The current setup works with cuda-samples v11.8 branch.
+    sample = parameter([
+        '1_Utilities/deviceQuery', 
+        '0_Introduction/concurrentKernels', 
+        #'4_CUDA_Libraries/simpleCUBLAS',
+        '1_Utilities/bandwidthTest',
+        '4_CUDA_Libraries/conjugateGradientCudaGraphs'
+    ])
+    valid_systems = ['lrcgpu',
+    ]
+    sourcesdir = 'https://github.com/NVIDIA/cuda-samples.git'
+    build_system = 'Make'
+    
+    num_gpus_per_node = 1
+    num_tasks_per_node = 2
+    num_cpus_per_task = 2
+    
+    # Required variables
+    gpu_arch = variable(str, type(None))
+    gpu_build = 'cuda'
+
+    @run_after('init')
+    def set_descr(self):
+        self.descr = f'CUDA {self.sample} test'
+
+    @run_after('init')
+    def set_system_configs(self):
+        self.valid_prog_environs = ['cuda']
+
+    @run_after('setup')
+    def set_gpu_arch(self):
+        cs = self.current_system.name
+        cp = self.current_partition.fullname
+        self.gpu_arch = None
+
+        if cp in {'lrcgpu:es1GRTX2080TI', 'lrcgpu:es1GRTX'}:
+            self.gpu_arch = '75'
+        elif cp in {'lrcgpu:es1A40'}:
+            self.gpu_arch = '86'
+        elif cp in {'lrcgpu:es1V100'}:
+            self.gpu_arch = '70'
+        elif cp in {'lrcgpu:es1H100'}:
+            self.gpu_arch = '90'
+
+    @run_before('compile')
+    def set_build_options(self):
+        self.build_system.options = [
+            f'SMS="{self.gpu_arch}"', f'CUDA_PATH=$CUDA_HOME'
+        ]
+        cuda_ver = 'v12.2'
+
+        self.prebuild_cmds = [
+            f'git checkout {cuda_ver}',
+            f'cd Samples/{self.sample}'
+        ]
+
+    @run_before('run')
+    def set_executable(self):
+        self.executable = f'Samples/{self.sample}/{self.sample.split("/")[-1]}'
+
+    @run_before('sanity')
+    def set_sanity_patterns(self):
+        output_patterns = {
+            'deviceQuery': r'Result = PASS',
+            'concurrentKernels': r'Test passed',
+            'simpleCUBLAS': r'test passed',
+            'bandwidthTest': r'Result = PASS',
+            'conjugateGradientCudaGraphs': r'Test Summary:  Error amount = 0.00000'
+        }
+        self.sanity_patterns = sn.assert_found(
+            output_patterns[self.sample.split("/")[-1]], self.stdout
+        )

@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name="rfm_CUDAFortranCheck"
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --output=rfm_job.out
+#SBATCH --error=rfm_job.err
+#SBATCH --time=0:40:0
+#SBATCH --partition=savio2_1080ti
+#SBATCH --account=ac_scsguest
+#SBATCH --qos=savio_debug
+#SBATCH --gres=gpu:GTX1080TI:1
+module load nvhpc
+srun --cpus-per-task=2 ./CUDAFortranCheck

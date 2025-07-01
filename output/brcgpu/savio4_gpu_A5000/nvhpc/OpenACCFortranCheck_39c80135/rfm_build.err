@@ -1,0 +1,7 @@
+main:
+     34, Generating copyin(a(1:n)) [if not already present]
+         Generating copyout(c(1:n)) [if not already present]
+         Generating copyin(b(1:n)) [if not already present]
+     35, Loop is parallelizable
+         Generating NVIDIA GPU code
+         35, !$acc loop gang, vector(128) ! blockidx%x threadidx%x

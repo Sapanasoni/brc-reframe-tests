@@ -1,0 +1,9 @@
+Module function not found, error 500
+Accelerator Fatal Error: This file was compiled: -acc=gpu -gpu=cc70 -gpu=cc75 -gpu=cc80 -gpu=cc86 -gpu=cc90
+Rebuild this file with -gpu=cc61 to use NVIDIA Tesla GPU 0
+ File: /global/scratch/users/spsoni/software_installation/lrc-reframe-tests/stage/brcgpu/savio2_gpu_1080TI/nvhpc/OpenACCFortranCheck_39c80135/vecAdd_openacc_nompi.f90
+ Function: main:7
+ Line: 34
+
+srun: error: n0229.savio2: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=26298428.0
