@@ -1,7 +1,6 @@
 <<<<<<< HEAD
-# brc-reframe-tests
 =======
-# Lawrencium Reframe Tests
+# Savio Reframe Tests
 
 ## Requirement
 * Requires `reframe >= 4.7.3` as we use custom location for cpu topology files
