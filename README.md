@@ -25,6 +25,11 @@ will run the tests of compiling and running hello world C/C++/Fortran programs. 
 ``` bash
 reframe -C config/savio.py --system=brc -c checks/prgenv/compilers_helloworld.py -r
 ```
+One more example: running a osu benchmark performance test on all partitions
+``` bash
+reframe -C config/savio.py --system=brc -c checks/microbenchmarks/mpi/osu/osu_tests.py -r
+```
+
 # To run the above test during maintenance using a reservation
 ``` bash
 reframe -C config/savio.py --system=brc -c checks/prgenv/compilers_helloworld.py --distribute=idle+maintenance+reserved -J reservation=2025-06-27-storage-work -r
@@ -34,7 +39,9 @@ reframe -C config/savio.py --system=brc -c checks/prgenv/compilers_helloworld.py
 ``` bash
 reframe -C config/savio.py --system=brcgpu -c checks/ml/pytorch/cifar10perf.py  -r 
 ```
-
+``` bash
+reframe -C config/savio.py --system=brcgpu -c checks/prgenv/cuda/cuda_samples.py -r
+```
 ## References
 Several of the tests have been adapted from:
 * https://github.com/eth-cscs/cscs-reframe-tests/tree/main/checks
