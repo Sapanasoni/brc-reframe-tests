@@ -4,6 +4,7 @@
 
 ## Requirement
 * Requires `reframe >= 4.7.3` as we use custom location for cpu topology files
+* Current version this repo is tested on is 4.8.1
 
 ## Structure
 * `config` consists of cluster configurations
@@ -11,22 +12,28 @@
 * `.gitlab-ci.yml` implements the CI using gitlab runner which runs on a login node and listens to changes to this repository.
 
 ## Examples of running tests manually
+clone this repo to either home or scratch
+git clone 
+cd brc-reframe-tests
 
-### Compilers HelloWorld Tests
+### Compilers HelloWorld Tests for CPUs on specific partition
 ``` bash
-reframe -C config/lawrencium.py --system=lrc:lr6 -c checks/prgenv/compilers_helloworld.py -r
+reframe -C config/savio.py --system=brc:savio2 -c checks/prgenv/compilers_helloworld.py -r
 ```
 will run the tests of compiling and running hello world C/C++/Fortran programs. The `-r` at the end instructs reframe to tun these tests.
 
-### Running all available tests in a folder
+### Compilers HelloWorld Tests for CPUs on all partition
 ``` bash
-reframe -C config/lawrencium.py --system=lrc:lr6 -c checks/prgenv/ -r -R
+reframe -C config/savio.py --system=brc -c checks/prgenv/compilers_helloworld.py -r
 ```
-The `-R` command line argument recursively searches for all available tests in the specified folder.
-
-### Running tests on es1
+# To run the above test during maintenance using a reservation
 ``` bash
-reframe -C config/lrcgpu.py -c checks/apps/vasp/ --system=lrcgpu:es1H100 -r -R
+reframe -C config/savio.py --system=brc -c checks/prgenv/compilers_helloworld.py --distribute=idle+maintenance+reserved -J reservation=2025-06-27-storage-work -r
+```
+
+### Running tests on brcgpu partitions pytorch test and cuda test
+``` bash
+reframe -C config/savio.py --system=brcgpu -c checks/ml/pytorch/cifar10perf.py  -r 
 ```
 
 ## References
