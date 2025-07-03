@@ -1,6 +1,12 @@
 # Adapted from reframe example
 import os
 username = os.environ['USER']
+
+try:
+    accountname = os.environ['RFM_ACC_NAME']
+except:
+    accountname = "scs"
+
 configdir = os.path.dirname(os.path.realpath(__file__))
 
 from reframe.core.backends import register_launcher
@@ -11,7 +17,7 @@ from reframe.core.launchers import JobLauncher
 class Srun2Launcher(JobLauncher):
     def __init__(self):
         self.options = []
-        self.use_cpus_per_task = True
+        self.use_cpus_per_task = True 
 
     def command(self, job):
         ret = ['srun', '--mpi=pmi2']
@@ -39,7 +45,7 @@ site_configuration = {
                     'scheduler': 'slurm',
                     'launcher': 'srun',
                     'time_limit': '40m',
-                    'access': ['--partition=savio2', '--account=ac_scsguest', '--qos=savio_debug'],
+                    'access': ['--partition=savio2', f'--account={accountname}', '--qos=savio_debug'],
                     'environs': ['builtin', 'gcc', 'gcc-mpi','intel', 'intel-mpi'],
                     'max_jobs': 10,
                 },
@@ -49,7 +55,7 @@ site_configuration = {
                     'scheduler': 'slurm',
                     'launcher': 'srun',
                     'time_limit': '40m',
-                    'access': ['--partition=savio2_bigmem', '--account=ac_scsguest', '--qos=savio_debug'],
+                    'access': ['--partition=savio2_bigmem', f'--account={accountname}', '--qos=savio_debug'],
                     'environs': ['builtin', 'gcc', 'gcc-mpi','intel', 'intel-mpi'],
                     'max_jobs': 10,
                 },
@@ -59,7 +65,7 @@ site_configuration = {
                     'scheduler': 'slurm',
                     'launcher': 'srun',
                     'time_limit': '40m',
-                    'access': ['--partition=savio2_htc', '--account=ac_scsguest', '--qos=savio_debug'],
+                    'access': ['--partition=savio2_htc', f'--account={accountname}', '--qos=savio_debug'],
                     'environs': ['builtin', 'gcc', 'gcc-mpi','intel', 'intel-mpi'],
                     'max_jobs': 10,
                 },
@@ -69,7 +75,7 @@ site_configuration = {
                     'scheduler': 'slurm',
                     'launcher': 'srun',
                     'time_limit': '40m',
-                    'access': ['--partition=savio2_knl', '--account=ac_scsguest', '--qos=savio_debug'],
+                    'access': ['--partition=savio2_knl', f'--account={accountname}', '--qos=savio_debug'],
                     'environs': ['builtin', 'gcc', 'gcc-mpi', 'intel', 'intel-mpi'],
                     'max_jobs': 10,
                 },
@@ -79,7 +85,7 @@ site_configuration = {
                     'scheduler': 'slurm',
                     'launcher': 'srun',
                     'time_limit': '40m',
-                    'access': ['--partition=savio3', '--account=ac_scsguest', '--qos=savio_debug'],
+                    'access': ['--partition=savio3', f'--account={accountname}', '--qos=savio_debug'],
                     'environs': ['builtin', 'gcc', 'gcc-mpi', 'intel', 'intel-mpi'],
                     'max_jobs': 10,
                 },
@@ -89,7 +95,7 @@ site_configuration = {
                     'scheduler': 'slurm',
                     'launcher': 'srun',
                     'time_limit': '40m',
-                    'access': ['--partition=savio3_bigmem', '--account=ac_scsguest', '--qos=savio_debug'],
+                    'access': ['--partition=savio3_bigmem', f'--account={accountname}', '--qos=savio_debug'],
                     'environs': ['builtin', 'gcc', 'gcc-mpi', 'intel', 'intel-mpi'],
                     'max_jobs': 10,
                 },                                            
@@ -99,7 +105,7 @@ site_configuration = {
                     'scheduler': 'slurm',
                     'launcher': 'srun',
                     'time_limit': '40m',
-                    'access': ['--partition=savio3_bigmem', '--account=ac_scsguest', '--qos=savio_debug'],
+                    'access': ['--partition=savio3_bigmem', f'--account={accountname}', '--qos=savio_debug'],
                     'environs': ['builtin', 'gcc', 'gcc-mpi', 'intel', 'intel-mpi'],
                     'max_jobs': 10,
                 },
@@ -109,7 +115,7 @@ site_configuration = {
 #                    'scheduler': 'slurm',
 #                    'launcher': 'srun',
 #                    'time_limit': '40m',
-#                    'access': ['--partition=savio3_xlmem', '--account=ac_scsguest', '--qos=savio_debug'],
+#                    'access': ['--partition=savio3_xlmem', f'--account={accountname}', '--qos=savio_debug'],
 #                    'environs': ['builtin', 'gcc', 'gcc-mpi', 'intel', 'intel-mpi'],
 #                    'max_jobs': 10,
 #                },
@@ -119,7 +125,7 @@ site_configuration = {
                     'scheduler': 'slurm',
                     'launcher': 'srun',
                     'time_limit': '40m',
-                    'access': ['--partition=savio4_htc', '--account=ac_scsguest', '--qos=savio_normal'],
+                    'access': ['--partition=savio4_htc', f'--account={accountname}', '--qos=savio_normal'],
                     'environs': ['builtin', 'gcc', 'gcc-mpi', 'intel', 'intel-mpi'],
                     'max_jobs': 10,
                 },
@@ -138,8 +144,8 @@ site_configuration = {
                     'launcher': 'srun',
                     'time_limit': '40m',
                     'access': ['--partition=savio4_gpu',
-                               '--account=ac_scsguest',
-                               '--qos=a5k_gpu4_normal',
+                               f'--account={accountname}',
+                               '--qos=savio_lowprio',
                                '--mincpus=8',
                                ],
                     'resources': [
@@ -159,7 +165,7 @@ site_configuration = {
                     'launcher': 'srun',
                     'time_limit': '40m',
                     'access': ['--partition=savio4_gpu',
-                               '--account=ac_scsguest',
+                               f'--account={accountname}',
                                '--qos=a5k_gpu4_normal',
                                '--mincpus=4',
                               ],
@@ -180,7 +186,7 @@ site_configuration = {
                     'launcher': 'srun',
                     'time_limit': '40m',
                     'access': ['--partition=savio3_gpu',
-                               '--account=ac_scsguest',
+                               f'--account={accountname}',
                                '--qos=savio_debug',
                               ],
                     'resources': [
@@ -200,7 +206,7 @@ site_configuration = {
                     'launcher': 'srun',
                     'time_limit': '40m',
                     'access': ['--partition=savio3_gpu',
-                               '--account=ac_scsguest',
+                               f'--account={accountname}',
                                '--qos=savio_debug',
                               ],
                     'resources': [
@@ -220,7 +226,7 @@ site_configuration = {
                     'launcher': 'srun',
                     'time_limit': '40m',
                     'access': ['--partition=savio3_gpu',
-                               '--account=ac_scsguest',
+                               f'--account={accountname}',
                                '--qos=savio_debug',
                               ],
                     'resources': [
@@ -240,7 +246,7 @@ site_configuration = {
                     'launcher': 'srun',
                     'time_limit': '40m',
                     'access': ['--partition=savio3_gpu',
-                               '--account=ac_scsguest',
+                               f'--account={accountname}',
                                '--qos=savio_debug',
                               ],
                     'resources': [
@@ -260,7 +266,7 @@ site_configuration = {
                     'launcher': 'srun',
                     'time_limit': '40m',
                     'access': ['--partition=savio2_1080ti',
-                               '--account=ac_scsguest',
+                               f'--account={accountname}',
                                '--qos=savio_debug',
                               ],
                     'resources': [

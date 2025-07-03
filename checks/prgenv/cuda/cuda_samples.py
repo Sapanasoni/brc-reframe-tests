@@ -55,7 +55,7 @@ class CudaSamplesTest(rfm.RegressionTest):
             self.gpu_arch = '75'
         elif cp in {'lrcgpu:es1A40', 'brcgpu:savio3_gpu_A40', 'brcgpu:savio4_gpu_A5000'}:
             self.gpu_arch = '86'
-        elif cp in {'lrcgpu:es1V100', 'brcgpu:savio4_gpu_V100'}:
+        elif cp in {'lrcgpu:es1V100', 'brcgpu:savio3_gpu_V100'}:
             self.gpu_arch = '70'
         elif cp in {'lrcgpu:es1H100'}:
             self.gpu_arch = '90'

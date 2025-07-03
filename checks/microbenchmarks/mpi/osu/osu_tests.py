@@ -111,12 +111,21 @@ class Pt2Pt_CPU_Bandwidth(Pt2Pt_BaseTest):
                     'bw': (6250, -0.1, None, 'MB/s')
                     },
                 'brc:savio2': {
-                    'bw': (6250, -0.1, None, 'MB/s')
+                    'bw': (5650, -0.1, None, 'MB/s')
                     },
                 'lrc:savio2_knl': {
                     'bw': (6250, -0.1, None, 'MB/s')
                     },
                 'lrc:savio2_bigmem': {
+                    'bw': (6250, -0.1, None, 'MB/s')
+                    },
+#                'lrc:savio2_xlmem': {
+#                    'bw': (6250, -0.1, None, 'MB/s')
+#                    },
+                'lrc:savio3_htc': {
+                    'bw': (6250, -0.1, None, 'MB/s')
+                    },
+                'lrc:savio3_bigmem': {
                     'bw': (6250, -0.1, None, 'MB/s')
                     },
                 }

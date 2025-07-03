@@ -43,22 +43,25 @@ class PyTorchCIFAR10(rfm.RunOnlyRegressionTest):
                 'tf_exec_time': (60, None, 0.1, 's'),
             },
             'brcgpu:savio2_gpu_1080TI': {
-                'tf_exec_time': (200, None, 0.1, 's'),
+                'tf_exec_time': (125, None, 0.1, 's'),
+            },
+            'brcgpu:savio4_gpu_L40': {
+                'tf_exec_time': (50, None, 0.1, 's'),
             },
             'brcgpu:savio3_gpu_GTX2080TI': {
-                'tf_exec_time': (200, None, 0.1, 's'),
+                'tf_exec_time': (120, None, 0.1, 's'),
             },
             'brcgpu:savio3_gpu_V100': {
-                'tf_exec_time': (200, None, 0.1, 's'),
+                'tf_exec_time': (127, None, 0.1, 's'),
             },
             'brcgpu:savio3_gpu_A40': {
-                'tf_exec_time': (200, None, 0.1, 's'),
+                'tf_exec_time': (85, None, 0.1, 's'),
             },
             'brcgpu:savio3_gpu_TITAN': {
-                'tf_exec_time': (200, None, 0.1, 's'),
+                'tf_exec_time': (115, None, 0.1, 's'),
             },
             'brcgpu:savio4_gpu_A5000': {
-                'tf_exec_time': (200, None, 0.1, 's'),
+                'tf_exec_time': (90, None, 0.1, 's'),
             },
             'brc:savio2': {
                 'tf_exec_time': (200, None, 0.1, 's'),
@@ -90,7 +93,7 @@ class PyTorchCIFAR10(rfm.RunOnlyRegressionTest):
         }
 
         self.num_gpus_per_node = 1
-        self.num_cpus_per_task = 4
+#        self.num_cpus_per_task = 4
 
         #self.perf_patterns = {
         #    'fit_evaluate_time': self.extract_fit_evaluate_time(),
