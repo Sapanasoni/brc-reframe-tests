@@ -24,7 +24,7 @@ class CudaSamplesTest(rfm.RegressionTest):
         '1_Utilities/bandwidthTest',
         '4_CUDA_Libraries/conjugateGradientCudaGraphs'
     ])
-    valid_systems = ['lrcgpu',
+    valid_systems = ['lrcgpu', 'brcgpu'
     ]
     sourcesdir = 'https://github.com/NVIDIA/cuda-samples.git'
     build_system = 'Make'
@@ -51,14 +51,18 @@ class CudaSamplesTest(rfm.RegressionTest):
         cp = self.current_partition.fullname
         self.gpu_arch = None
 
-        if cp in {'lrcgpu:es1GRTX2080TI', 'lrcgpu:es1GRTX'}:
+        if cp in {'lrcgpu:es1GRTX2080TI', 'lrcgpu:es1GRTX', 'brcgpu:savio3_gpu_GTX2080TI', 'brcgpu:savio3_gpu_TITAN'}:
             self.gpu_arch = '75'
-        elif cp in {'lrcgpu:es1A40'}:
+        elif cp in {'lrcgpu:es1A40', 'brcgpu:savio3_gpu_A40', 'brcgpu:savio4_gpu_A5000'}:
             self.gpu_arch = '86'
-        elif cp in {'lrcgpu:es1V100'}:
+        elif cp in {'lrcgpu:es1V100', 'brcgpu:savio4_gpu_V100'}:
             self.gpu_arch = '70'
         elif cp in {'lrcgpu:es1H100'}:
             self.gpu_arch = '90'
+        elif cp in {'brcgpu:savio2_gpu_1080TI'}:
+            self.gpu_arch = '61'
+        elif cp in {'brcgpu:savio4_gpu_L40'}:
+            self.gpu_arch = '89'
 
     @run_before('compile')
     def set_build_options(self):

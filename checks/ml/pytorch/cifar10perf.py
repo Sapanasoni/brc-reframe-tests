@@ -42,6 +42,51 @@ class PyTorchCIFAR10(rfm.RunOnlyRegressionTest):
             'lrc:lr8': {
                 'tf_exec_time': (60, None, 0.1, 's'),
             },
+            'brcgpu:savio2_gpu_1080TI': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brcgpu:savio3_gpu_GTX2080TI': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brcgpu:savio3_gpu_V100': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brcgpu:savio3_gpu_A40': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brcgpu:savio3_gpu_TITAN': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brcgpu:savio4_gpu_A5000': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brc:savio2': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brc:savio2_bigmem': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brc:savio2_htc': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brc:savio2_knl': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brc:savio3': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brc:savio3_bigmem': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brc:savio3_xlmem': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brc:savio3_htc': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
+            'brc:savio4_htc': {
+                'tf_exec_time': (200, None, 0.1, 's'),
+            },
         }
 
         self.num_gpus_per_node = 1

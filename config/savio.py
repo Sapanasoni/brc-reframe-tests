@@ -103,6 +103,26 @@ site_configuration = {
                     'environs': ['builtin', 'gcc', 'gcc-mpi', 'intel', 'intel-mpi'],
                     'max_jobs': 10,
                 },
+#                {
+#                    'name': 'savio3_xlmem',
+#                    'descr': 'rocky8 savio3_xlmem',
+#                    'scheduler': 'slurm',
+#                    'launcher': 'srun',
+#                    'time_limit': '40m',
+#                    'access': ['--partition=savio3_xlmem', '--account=ac_scsguest', '--qos=savio_debug'],
+#                    'environs': ['builtin', 'gcc', 'gcc-mpi', 'intel', 'intel-mpi'],
+#                    'max_jobs': 10,
+#                },
+                {
+                    'name': 'savio4_htc',
+                    'descr': 'rocky8 savio4_htc',
+                    'scheduler': 'slurm',
+                    'launcher': 'srun',
+                    'time_limit': '40m',
+                    'access': ['--partition=savio4_htc', '--account=ac_scsguest', '--qos=savio_normal'],
+                    'environs': ['builtin', 'gcc', 'gcc-mpi', 'intel', 'intel-mpi'],
+                    'max_jobs': 10,
+                },
             ],
         },
         {
@@ -119,14 +139,14 @@ site_configuration = {
                     'time_limit': '40m',
                     'access': ['--partition=savio4_gpu',
                                '--account=ac_scsguest',
-                               '--qos=savio_lowprio',
+                               '--qos=a5k_gpu4_normal',
                                '--mincpus=8',
                                ],
                     'resources': [
                         {
                             'name': '_rfm_gpu',
                             'options': ['--gres=gpu:L40:{num_gpus_per_node}',
-                                        '--cpus-per-task={num_cpus_per_task}']
+                                        '--cpus-per-task=8']
                         }
                     ],
                     'environs': ['builtin_gpu', 'cuda', 'nvhpc'],
@@ -167,7 +187,7 @@ site_configuration = {
                         {
                             'name': '_rfm_gpu',
                             'options': ['--gres=gpu:TITAN:{num_gpus_per_node}',
-                                        '--cpus-per-task={num_cpus_per_task}']
+                                        '--cpus-per-task=4']
                             }
                     ],
                     'environs': ['builtin_gpu', 'cuda', 'nvhpc'],
@@ -187,7 +207,7 @@ site_configuration = {
                         {
                             'name': '_rfm_gpu',
                             'options': ['--gres=gpu:A40:{num_gpus_per_node}',
-                                        '--cpus-per-task={num_cpus_per_task}']
+                                        '--cpus-per-task=8']
                             }
                     ],
                     'environs': ['builtin_gpu', 'cuda', 'nvhpc'],
@@ -207,7 +227,7 @@ site_configuration = {
                         {
                             'name': '_rfm_gpu',
                             'options': ['--gres=gpu:V100:{num_gpus_per_node}',
-                                        '--cpus-per-task={num_cpus_per_task}']
+                                        '--cpus-per-task=4']
                             }
                     ],
                     'environs': ['builtin_gpu', 'cuda', 'nvhpc'],
@@ -227,7 +247,7 @@ site_configuration = {
                         {
                             'name': '_rfm_gpu',
                             'options': ['--gres=gpu:GTX2080TI:{num_gpus_per_node}',
-                                        '--cpus-per-task={num_cpus_per_task}']
+                                        '--cpus-per-task=2']
                             }
                     ],
                     'environs': ['builtin_gpu', 'cuda', 'nvhpc'],
@@ -247,7 +267,7 @@ site_configuration = {
                         {
                             'name': '_rfm_gpu',
                             'options': ['--gres=gpu:GTX1080TI:{num_gpus_per_node}',
-                                        '--cpus-per-task={num_cpus_per_task}']
+                                        '--cpus-per-task=2']
                             }
                     ],
                     'environs': ['builtin_gpu', 'cuda', 'nvhpc'],
