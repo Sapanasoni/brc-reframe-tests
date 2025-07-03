@@ -34,6 +34,7 @@ reframe -C config/savio.py --system=brc -c checks/microbenchmarks/mpi/osu/osu_te
 ``` bash
 reframe -C config/savio.py --system=brc -c checks/prgenv/compilers_helloworld.py --distribute=idle+maintenance+reserved -J reservation=2025-06-27-storage-work -r
 ```
+Note: The flag --distribute=idle+maintenance+reserved will distribute jobs to all nodes on the partition which is good for nodes testing and one check might be good enough for this testing as shown above with helloworld. Other tests can be run without the flag.
 
 ### Running tests on brcgpu partitions pytorch test and cuda test
 ``` bash
