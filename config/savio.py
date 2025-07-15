@@ -105,7 +105,7 @@ site_configuration = {
                     'scheduler': 'slurm',
                     'launcher': 'srun',
                     'time_limit': '40m',
-                    'access': ['--partition=savio3_bigmem', f'--account={accountname}', '--qos=savio_debug'],
+                    'access': ['--partition=savio3_htc', f'--account={accountname}', '--qos=savio_debug'],
                     'environs': ['builtin', 'gcc', 'gcc-mpi', 'intel', 'intel-mpi'],
                     'max_jobs': 10,
                 },
